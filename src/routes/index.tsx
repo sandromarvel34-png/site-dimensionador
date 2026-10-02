@@ -97,7 +97,7 @@ function SalesPage() {
   useEffect(() => {
     const hero = document.getElementById("topo");
     if (!hero) return;
-    const io = new IntersectionObserver(([e]) => setShowBar(!e.isIntersecting));
+    const io = new IntersectionObserver(([e]) => setShowBar(!e?.isIntersecting));
     io.observe(hero);
     return () => io.disconnect();
   }, []);
