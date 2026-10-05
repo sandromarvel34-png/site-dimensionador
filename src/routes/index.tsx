@@ -317,7 +317,7 @@ function SalesPage() {
               </button>
             </div>
             <p className="mt-4 text-sm text-muted-foreground">
-              6 meses de acesso por R$37 • Pagamento único • Sem mensalidade
+              De <del>R$97,00</del> por <strong className="text-foreground">R$37,00</strong> • 6 meses de acesso • Pagamento único • Sem mensalidade
             </p>
             <p className="mt-6 flex items-start gap-2 text-xs leading-relaxed text-muted-foreground">
               <Info className="mt-0.5 h-3.5 w-3.5 shrink-0" />
@@ -816,9 +816,13 @@ function SalesPage() {
               <p className="text-sm font-semibold tracking-[0.1em] text-primary">
                 6 MESES DE ACESSO
               </p>
+              <p className="mt-4 text-lg text-muted-foreground">
+                De <del>R$97,00</del> por
+              </p>
               <p className="mt-2 text-5xl font-bold tracking-tight">
                 R$ 37<span className="text-3xl">,00</span>
               </p>
+              <p className="mt-3 text-sm font-semibold text-primary">Economize R$60,00</p>
               <p className="mt-4 text-sm text-muted-foreground">
                 Pagamento único, sem mensalidade e sem renovação automática.
               </p>
@@ -874,7 +878,8 @@ function SalesPage() {
             Informe os dados do motor e da instalação. Receba o dimensionamento dos cabos e
             dispositivos e as indicações dos fabricantes para apoiar sua escolha.
           </p>
-          <p className="mt-8 text-2xl font-bold">6 meses de acesso por R$37</p>
+          <p className="mt-8 text-lg text-navy-foreground/75">De <del>R$97,00</del> por</p>
+          <p className="mt-2 text-2xl font-bold">R$37,00 • 6 meses de acesso</p>
           <p className="mt-3 text-sm text-navy-foreground/75">
             Pagamento único • Sem mensalidade • Sem renovação automática
           </p>
