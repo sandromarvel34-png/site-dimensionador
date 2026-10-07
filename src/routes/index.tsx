@@ -27,7 +27,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import {
-  goToCheckout,
+  CHECKOUT_URL,
+  trackCheckout,
   PDF_EXAMPLE_URL,
   SUPPORT_URL,
   TERMS_URL,
@@ -67,13 +68,13 @@ function CTA({
   className?: string;
 }) {
   return (
-    <button
-      type="button"
-      onClick={() => goToCheckout(source)}
+    <a
+      href={CHECKOUT_URL}
+      onClick={() => trackCheckout(source)}
       className={`inline-flex w-full items-center justify-center gap-2 rounded-xl bg-cta px-6 py-4 text-base font-semibold text-cta-foreground shadow-soft transition hover:-translate-y-0.5 hover:bg-cta-hover active:translate-y-0 sm:w-auto ${className}`}
     >
       {children} <ArrowRight className="h-4 w-4" />
-    </button>
+    </a>
   );
 }
 
@@ -279,12 +280,13 @@ function SalesPage() {
               </div>
             </div>
           </div>
-          <button
-            onClick={() => goToCheckout("header")}
+          <a
+            href={CHECKOUT_URL}
+            onClick={() => trackCheckout("header")}
             className="hidden shrink-0 rounded-lg bg-cta px-4 py-2 text-sm font-semibold text-cta-foreground transition hover:bg-cta-hover sm:inline-flex"
           >
             Liberar meu acesso
-          </button>
+          </a>
         </div>
       </header>
 
@@ -966,12 +968,13 @@ function SalesPage() {
           <span className="min-w-0 truncate text-sm font-semibold">
             Dimensionador Expert — R$37
           </span>
-          <button
-            onClick={() => goToCheckout("barra-mobile")}
+          <a
+            href={CHECKOUT_URL}
+            onClick={() => trackCheckout("barra-mobile")}
             className="shrink-0 rounded-lg bg-cta px-4 py-2.5 text-sm font-semibold text-cta-foreground"
           >
             Quero acessar
-          </button>
+          </a>
         </div>
       </div>
     </div>

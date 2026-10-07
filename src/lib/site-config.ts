@@ -8,16 +8,26 @@ export const PRIVACY_URL = "";
 
 type FbqWindow = Window & { fbq?: (...args: unknown[]) => void };
 
-/** Dispara InitiateCheckout (se houver Meta Pixel global) e abre o checkout. */
+/** Registra o clique sem impedir a navegação caso o Pixel falhe. */
+export function trackCheckout(source: string) {
+  if (typeof window === "undefined") return;
+  try {
+    const w = window as FbqWindow;
+    w.fbq?.("track", "InitiateCheckout", {
+      value: 37,
+      currency: "BRL",
+      content_name: "Dimensionador Expert - Acesso Fundador",
+      source,
+    });
+  } catch {
+    // A medição nunca deve impedir o acesso ao checkout.
+  }
+}
+
+/** Mantém o redirecionamento disponível para chamadas programáticas. */
 export function goToCheckout(source: string) {
   if (typeof window === "undefined") return;
-  const w = window as FbqWindow;
-  w.fbq?.("track", "InitiateCheckout", {
-    value: 37,
-    currency: "BRL",
-    content_name: "Dimensionador Expert - Acesso Fundador",
-    source,
-  });
+  trackCheckout(source);
   if (CHECKOUT_URL) {
     window.location.href = CHECKOUT_URL;
   } else {
